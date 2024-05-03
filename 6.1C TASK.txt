@@ -1,23 +1,20 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Build') {
+        stage('Hello') {
             steps {
-                echo "Fetch Source Codesss"
-                git branch: 'main' , url:'https://github.com/AIMAAKHAN/Jenkins.git'
-                echo "Compile the code"
+                echo 'Hello World'
+                git branch: 'main', url: 'https://github.com/AIMAAKHAN/Jenkins'
             }
         }
-        
-        stage('Unit and Integration Tests') {
+         stage('Unit and Integration Tests') {
             steps {
                 echo 'Executing unit tests...'
                 echo 'Conducting integration tests...'
             }
         }
-        
-        stage('Code Analysis') {
+         stage('Code Analysis') {
             steps {
                 echo 'Performing code analysis via SonarQube...'
             }
@@ -47,7 +44,7 @@ pipeline {
             }
         }
     }
-    post {
+     post {
         success {
            mail to:"eemaaa191@gmail.com",
                     subject: "Build Status Email",
@@ -59,4 +56,5 @@ pipeline {
                     body: "Build Was Failed"
         }
     }
-}
+    }
+
