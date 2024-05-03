@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Fetch Source Code"
+                echo "Fetch Source Codesss"
                 git branch: 'main' , url:'https://github.com/AIMAAKHAN/Jenkins.git'
                 echo "Compile the code"
             }
