@@ -4,25 +4,25 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello Worldss'
+                echo 'Hello World'
                 git branch: 'main', url: 'https://github.com/AIMAAKHAN/Jenkins'
             }
         }
          stage('Unit and Integration Tests') {
             steps {
-                echo 'Executing unit tests...'
-                echo 'Conducting integration tests...'
+                echo 'run unit tests to ensure the code functions as expected'
+                echo ' run integration tests to ensure the different components of the application work together as expected'
             }
         }
          stage('Code Analysis') {
             steps {
-                echo 'Performing code analysis via SonarQube...'
+                echo ' integrate a code analysis tool to analyse the code and ensure it meets industry standards'
             }
         }
         
         stage('Security Scan') {
             steps {
-                echo 'Conducting security evaluation using OWASP ZAP...'
+                echo 'perform a security scan on the code using a tool to identify any vulnerabilities'
             }
         }
         
@@ -34,13 +34,13 @@ pipeline {
         
         stage('Integration Tests on Staging') {
             steps {
-                echo 'Executing integration tests on staging environment...'
+                echo 'run integration tests on the staging environment'
             }
         }
         
         stage('Deploy to Production') {
             steps {
-                echo 'Deploying application to production server (e.g., AWS EC2 instance)...'
+                echo 'Deploying application to production server '
             }
         }
     }
@@ -51,7 +51,7 @@ pipeline {
                     body: "Build Was Successful"
         }
         failure {
-          mail to:"eemaa1919@gmail.com",
+          mail to:"eemaa191@gmail.com",
                     subject: "Build Status Email",
                     body: "Build Was Failed"
         }
