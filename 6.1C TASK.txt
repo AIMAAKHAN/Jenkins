@@ -45,15 +45,23 @@ pipeline {
         }
     }
      post {
-        success {
-           mail to:"eemaaa191@gmail.com",
-                    subject: "Build Status Email",
-                    body: "Build Was Successful"
+         success {
+            echo 'Pipeline succeeded!'
+            emailext subject: "  Pipeline Status-Success",
+                     body: " Jenkins pipeline succeded ",
+                     to: 'eemaaa191@gmail.com',
+                     from: 'eemaaa191@gmail.com',
+                     replyTo: 'eemaaa191@gmail.com',
+                     attachLog: true
         }
         failure {
-          mail to:"eemaa191@gmail.com",
-                    subject: "Build Status Email",
-                    body: "Build Was Failed"
+            echo 'Pipeline failed!'
+            emailext subject: " Jenkins Pipeline Status-FAILURE ",
+                     body: " Jenkins pipeline failed.",
+                      to: 'eemaaa191@gmail.com',
+                     from: 'eemaaa191@gmail.com',
+                     replyTo: 'eemaaa191@gmail.com',
+                     attachLog: true
         }
     }
     }
